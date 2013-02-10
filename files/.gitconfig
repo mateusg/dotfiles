@@ -1,0 +1,23 @@
+[alias]
+	s = status
+	ps = push
+	p = pull
+	st = stash
+	co = checkout
+	ci = commit
+	b = branch
+	d = diff
+	dc = diff --cached
+	l = log
+	lg = log --graph --date=short --decorate --oneline
+	short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+	lastday = log --author=mateusg --oneline --all --since=1.day
+	lastfri = log --author=mateusg --oneline --all --since='last Fri'
+	shame = blame
+[color]
+	ui = true
+[core]
+	editor = sublime -n -w
+[user]
+	name = Mateus Gomes
+	email = mateusg.18@gmail.com
