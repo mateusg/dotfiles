@@ -12,9 +12,7 @@ end
 
 begin
   require "awesome_print"
-  Pry.config.print = proc do |output, value|
-    Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)
-  end
+  AwesomePrint.pry!
 rescue LoadError => err
   warn "=> Unable to load awesome_print"
 end
