@@ -10,14 +10,16 @@
 	dc = diff --cached
 	l = log
 	lg = log --graph --date=short --decorate --oneline
+	logdiff = log -p
 	short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
 	lastday = log --author=mateusg --oneline --all --since=1.day
 	lastfri = log --author=mateusg --oneline --all --since='last Fri'
+	rb = rebase
 	shame = blame
 [color]
 	ui = true
-[core]
-	editor = sublime -n -w
 [user]
 	name = Mateus Gomes
 	email = mateusg.18@gmail.com
+[core]
+	editor = subl -n -w
