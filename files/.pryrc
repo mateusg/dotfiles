@@ -7,7 +7,7 @@ Pry.config.prompt = proc do |object, level, pry|
 end
 
 Pry.config.exception_handler = proc do |output, exception, pry|
-  Pry::Helpers::Text.red "#{exception.class}: #{exception.message}\n from #{exception.backtrace.first}"
+  output.puts Pry::Helpers::Text.red("#{exception.class}: #{exception.message}\n from #{exception.backtrace.first}")
 end
 
 begin
