@@ -10,9 +10,9 @@ ZSH_THEME="mateusg"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias be="bundle exec"
 alias sublime="nocorrect subl"
 alias git lg="nocorrect git lg"
+alias kicker_rails='kicker -r rails -b "spin push"'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -35,7 +35,7 @@ alias git lg="nocorrect git lg"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew capistrano rails sublime)
+plugins=(git brew cap bundler gem osx)
 
 source $ZSH/oh-my-zsh.sh
 
