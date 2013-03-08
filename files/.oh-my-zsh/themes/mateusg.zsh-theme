@@ -6,8 +6,9 @@ function rvm_gemset_prompt() {
 }
 
 function ruby_prompt() {
-  local RUBY_VERSION=`echo $(ruby -v) | grep -E "[0-9\.p]+" -o | sed -n 1p`
-  echo "$RUBY_VERSION$(rvm_gemset_prompt)"
+  # local RUBY_VERSION=`echo $(ruby -v) | grep -E "[0-9\.p]+" -o | sed -n 1p`
+  # echo "$RUBY_VERSION$(rvm_gemset_prompt)"
+  echo $(rvm-prompt)
 }
 
 function rails_prompt() {
