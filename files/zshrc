@@ -10,9 +10,11 @@ ZSH_THEME="mateusg"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias be="bundle exec"
 alias sublime="nocorrect subl"
 alias git lg="nocorrect git lg"
 alias kicker_rails='kicker -r rails -b "spin push"'
+alias etest "RAILS_ENV=test"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -34,8 +36,8 @@ alias kicker_rails='kicker -r rails -b "spin push"'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew cap bundler gem osx)
+# Example format: plugins=(rails git textmate ruby lighthouse bundler)
+plugins=(git brew cap gem osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,7 +51,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Editor
-export EDITOR="subl -w"
+export EDITOR="subl -n -w"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
