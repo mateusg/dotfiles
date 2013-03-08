@@ -7,6 +7,7 @@ ln -fhs `pwd`/files/pryrc ~/.pryrc
 ln -fhs `pwd`/files/rvmrc ~/.rvmrc
 ln -fhs `pwd`/files/vimrc ~/.vimrc
 ln -fhs `pwd`/files/zshrc ~/.zshrc
+ln -fhs `pwd`/files/gitignore ~/.gitignore
 
 mkdir -p ~/.oh-my-zsh/themes/
 mv ~/.oh-my-zsh/themes/mateusg.zsh-theme ~/.oh-my-zsh/themes/mateusg.zsh-theme.bkp
