@@ -11,6 +11,7 @@ ZSH_THEME="mateusg"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias be="bundle exec"
+alias bu="bundle update"
 alias sublime="nocorrect subl"
 alias git lg="nocorrect git lg"
 alias kicker_rails='kicker -r rails -b "spin push"'
@@ -55,3 +56,4 @@ export EDITOR="subl -n -w"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
