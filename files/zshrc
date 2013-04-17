@@ -13,7 +13,8 @@ ZSH_THEME="mateusg"
 alias be="bundle exec"
 alias bu="bundle update"
 alias sublime="nocorrect subl"
-alias git lg="nocorrect git lg"
+alias "git lg"="nocorrect git lg"
+alias lg="nocorrect git lg"
 alias kicker_rails='kicker -r rails -b "spin push"'
 alias etest "RAILS_ENV=test"
 
@@ -43,7 +44,7 @@ plugins=(git brew cap gem osx)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin":$PATH
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
