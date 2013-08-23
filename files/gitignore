@@ -2,4 +2,6 @@
 .rvmrc
 .ruby-version
 .ruby-gemset
+config/*elasticsearch.yml
+db/elasticsearch
 
