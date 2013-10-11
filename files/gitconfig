@@ -26,3 +26,5 @@
 [core]
 	editor = subl -n -w
 	excludesfile = ~/.gitignore
+[grep]
+	lineNumber = true
