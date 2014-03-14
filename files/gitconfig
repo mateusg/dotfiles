@@ -1,30 +1,32 @@
 [alias]
-	s = status
-	ps = push
-	p = pull
-	st = stash
-	co = checkout
-	ci = commit
-	b = branch
-	d = diff
-	dc = diff --cached
-	l = log
-	lg = log --graph --date=short
-	logdiff = log -p
-	short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
-	lastday = log --author=mateusg --oneline --all --since=1.day
-	lastfri = log --author=mateusg --oneline --all --since='last Fri'
-	rb = rebase
-	shame = blame
+  s = status
+  ps = push
+  p = pull
+  st = stash
+  co = checkout
+  ci = commit
+  b = branch
+  d = diff
+  dc = diff --cached
+  l = log
+  lg = log --graph --date=short
+  logdiff = log -p
+  short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+  lastday = log --author=mateusg --oneline --all --since=1.day
+  lastfri = log --author=mateusg --oneline --all --since='last Fri'
+  rb = rebase
+  shame = blame
+  me = log --author=mateus --all
+  sf = show --format=full
 [format]
-	pretty = format:%C(cyan)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(reset)%s %C(magenta) [%an]%Creset
+  pretty = format:%C(cyan)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(reset)%s %C(magenta) [%an]%Creset
 [color]
-	ui = true
+  ui = true
 [user]
-	name = Mateus Gomes
-	email = mateusg.18@gmail.com
+  name = Mateus Gomes
+  email = mateusg.18@gmail.com
 [core]
-	editor = subl -n -w
-	excludesfile = ~/.gitignore
+  editor = subl -n -w
+  excludesfile = ~/.gitignore
 [grep]
-	lineNumber = true
+  lineNumber = true
