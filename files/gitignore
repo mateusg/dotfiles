@@ -6,3 +6,5 @@ config/*elasticsearch.yml
 db/elasticsearch
 config/initializers/development_reload.rb
 config/local_configs/*
+.~lock.*
+Procfile.mine
