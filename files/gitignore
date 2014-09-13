@@ -4,5 +4,6 @@
 .ruby-gemset
 config/*elasticsearch.yml
 db/elasticsearch
+config/database.yml
 .~lock.*
 Procfile.mine
