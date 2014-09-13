@@ -55,8 +55,15 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Editor
 export EDITOR="subl -n -w"
 
-### Added by the Heroku Toolbelt
+# Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+# Go
+export GOPATH=$HOME/Code/go
+export PATH=$PATH:$GOPATH/bin/
 
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Oracle client
+export NLS_LANG="AMERICAN_AMERICA.UTF8"
+export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
+export TNS_ADMIN=/opt/oracle/instantclient_11_2/network/admin
+export PATH=$PATH:/opt/oracle/instantclient_11_2
