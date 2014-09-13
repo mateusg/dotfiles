@@ -51,6 +51,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Editor
 export EDITOR="subl -n -w"
