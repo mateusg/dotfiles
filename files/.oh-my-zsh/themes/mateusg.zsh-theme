@@ -1,14 +1,16 @@
 function rvm_gemset_prompt() {
-  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}') 
+  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
   if [ "$gemset" != "" ]; then
     echo "@$gemset"
   fi
 }
 
 function ruby_prompt() {
-  # local RUBY_VERSION=`echo $(ruby -v) | grep -E "[0-9\.p]+" -o | sed -n 1p`
-  # echo "$RUBY_VERSION$(rvm_gemset_prompt)"
-  echo $(rvm-prompt)
+  if [ -s "$HOME/.rvm/scripts/rvm" ]; then
+    echo $(rvm-prompt)
+  elif [ -s "$HOME/.rbenv" ]; then
+    echo $(rbenv version | sed -e 's/ .*//')
+  fi
 }
 
 function rails_prompt() {
@@ -16,7 +18,7 @@ function rails_prompt() {
   if [ -f "Gemfile.lock" ]; then
     RAILS_VERSION=`cat Gemfile.lock | grep -E " +rails \([0-9]+" | sed 's/ *rails (\(.*\))/\1/'`
   fi
-  
+
   if [ "$RAILS_VERSION" ]; then
     local RAILS_PROMPT=" -> %{$FG[124]%}${RAILS_VERSION}%{$reset_color%}"
   fi
