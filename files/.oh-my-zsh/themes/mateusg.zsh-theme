@@ -1,10 +1,3 @@
-function rvm_gemset_prompt() {
-  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
-  if [ "$gemset" != "" ]; then
-    echo "@$gemset"
-  fi
-}
-
 function ruby_prompt() {
   if [ -s "$HOME/.rvm/scripts/rvm" ]; then
     echo $(rvm-prompt)
@@ -23,10 +16,6 @@ function rails_prompt() {
     local RAILS_PROMPT=" -> %{$FG[124]%}${RAILS_VERSION}%{$reset_color%}"
   fi
   echo $RAILS_PROMPT
-}
-
-function spacing_and_prompt_arrow() {
-  echo "\n»"
 }
 
 if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="blue"; fi
