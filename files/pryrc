@@ -18,7 +18,11 @@ end
 begin
   require "awesome_print"
 
-  AwesomePrint.pry! if defined?(AwesomePrint)
+  # Uses awesome_print output style with pry
+  # AwesomePrint.pry! if defined?(AwesomePrint)
+
+  # Uses awesome_print output and also paginates results with pry pager
+  Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
 rescue LoadError => err
   warn "=> Unable to load awesome_print"
 end
