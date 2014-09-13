@@ -63,7 +63,7 @@ export GOPATH=$HOME/Code/go
 export PATH=$PATH:$GOPATH/bin/
 
 # Oracle client
-export NLS_LANG="AMERICAN_AMERICA.UTF8"
-export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
-export TNS_ADMIN=/opt/oracle/instantclient_11_2/network/admin
-export PATH=$PATH:/opt/oracle/instantclient_11_2
+#export NLS_LANG="AMERICAN_AMERICA.UTF8"
+#export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
+#export TNS_ADMIN=/opt/oracle/instantclient_11_2/network/admin
+#export PATH=$PATH:/opt/oracle/instantclient_11_2
