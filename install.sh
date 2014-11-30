@@ -2,6 +2,7 @@
 
 ln -sf $(pwd)/files/gemrc ~/.gemrc
 ln -sf $(pwd)/files/gitconfig ~/.gitconfig
+ln -sf $(pwd)/files/gitignore ~/.gitignore
 ln -sf $(pwd)/files/irbrc ~/.irbrc
 ln -sf $(pwd)/files/pryrc ~/.pryrc
 ln -sf $(pwd)/files/rvmrc ~/.rvmrc
