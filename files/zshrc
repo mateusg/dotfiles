@@ -40,7 +40,7 @@ alias dumpdiff='git diff master > `date +"%Y-%m-%d---%H-%M-%S"`-`git rev-parse -
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse bundler)
-plugins=(git brew cap gem osx)
+plugins=(git brew cap gem osx terminalapp)
 
 source $ZSH/oh-my-zsh.sh
 
