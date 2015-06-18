@@ -5,7 +5,7 @@ ln -sf $(pwd)/files/gitconfig ~/.gitconfig
 ln -sf $(pwd)/files/gitignore ~/.gitignore
 ln -sf $(pwd)/files/irbrc ~/.irbrc
 ln -sf $(pwd)/files/pryrc ~/.pryrc
-ln -sf $(pwd)/files/rvmrc ~/.rvmrc
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && ln -sf $(pwd)/files/rvmrc ~/.rvmrc
 ln -sf $(pwd)/files/vimrc ~/.vimrc
 ln -sf $(pwd)/files/zshrc ~/.zshrc
 
