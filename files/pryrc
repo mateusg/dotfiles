@@ -13,6 +13,7 @@ end
 if defined?(Rails)
   require "rails/console/app"
   require "rails/console/helpers"
+  TOPLEVEL_BINDING.eval("self").extend ::Rails::ConsoleMethods
 end
 
 begin
