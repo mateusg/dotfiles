@@ -73,5 +73,3 @@ LDFLAGS="$LDFLAGS -L/usr/local/opt/llvm35/lib/llvm-3.5/lib"
 # added by travis gem
 [ -f /Users/mateus/.travis/travis.sh ] && source /Users/mateus/.travis/travis.sh
 
-# Homebrew
-export HOMEBREW_TEMP=/usr/local/tmp
