@@ -7,4 +7,6 @@ db/elasticsearch
 config/database.yml
 db/dumps
 .~lock.*
-Procfile.mine
+Procfile.local
+lib/tasks/db/setup_development_users.rake
+t
