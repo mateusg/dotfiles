@@ -73,3 +73,9 @@ LDFLAGS="$LDFLAGS -L/usr/local/opt/llvm35/lib/llvm-3.5/lib"
 # added by travis gem
 [ -f /Users/mateus/.travis/travis.sh ] && source /Users/mateus/.travis/travis.sh
 
+# Qt5 
+#export PATH="/usr/local/opt/qt5/bin:$PATH"
+#export LDFLAGS="-L/usr/local/opt/qt5/lib:$LDFLAGS"
+#export CPPFLAGS="-I/usr/local/opt/qt5/include:$CPPFLAGS"
+#export PKG_CONFIG_PATH="/usr/local/opt/qt5/lib/pkgconfig:$PKG_CONFIG_PATH"
+
