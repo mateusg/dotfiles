@@ -1,4 +1,4 @@
-Pry.config.editor = "subl -n -w"
+Pry.config.editor = ENV.fetch("EDITOR", "subl -n -w")
 
 Pry.config.prompt = proc do |object, level, pry|
   prompt = "#{RUBY_VERSION}"
