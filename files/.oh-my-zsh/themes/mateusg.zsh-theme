@@ -1,8 +1,14 @@
 function ruby_prompt() {
-  if [ -s "$HOME/.rvm/scripts/rvm" ]; then
-    echo $(rvm-prompt)
-  elif [ -s "$HOME/.rbenv" ]; then
-    echo $(rbenv version | sed -e 's/ .*//')
+  local RUBY_VERSION
+  if [[ $(which ruby) =~ 'asdf' ]]; then
+    RUBY_VERSION=$(asdf current ruby | sed s'/ruby[[:space:]]*//g' | sed s'/[[:space:]].*//g')
+  elif [ $(command -v ruby) ]; then
+    RUBY_VERSION=$(ruby --version | sed 's/ruby //g' | sed 's/ .*//g')
+  fi
+  
+  if [ "$RUBY_VERSION" ]; then
+    echo -n "🔻 "
+    echo -n "%f%{$FG[160]%}$RUBY_VERSION%{$reset_color%}"
   fi
 }
 
@@ -13,15 +19,14 @@ function rails_prompt() {
   fi
 
   if [ "$RAILS_VERSION" ]; then
-    local RAILS_PROMPT=" -> %{$FG[124]%}${RAILS_VERSION}%{$reset_color%}"
+    echo -n " 🛤  "
+    echo -n "%{$FG[124]%}${RAILS_VERSION}%{$reset_color%}"
   fi
-  echo $RAILS_PROMPT
 }
 
 if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="blue"; fi
 
-# %U%m%u  host
-PROMPT='%{$FG[146]%}{ %f%{$FG[137]%}$(ruby_prompt)%{$reset_color%}$(rails_prompt) %{$FG[146]%}} %{$reset_color%}%{$FG[106]%}%3~ $(git_prompt_info)%{$FG[111]%}
+PROMPT='%{$FG[146]%}{ %n@%m $(ruby_prompt)$(rails_prompt) %{$FG[146]%}} %{$reset_color%}%{$FG[106]%}%3~ $(git_prompt_info)%{$FG[111]%}
 »%{${reset_color}%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[220]%}["
