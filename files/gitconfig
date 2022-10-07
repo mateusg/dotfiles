@@ -5,6 +5,7 @@
   st = stash
   co = checkout
   ci = commit
+  cp = cherry-pick
   b = branch
   d = diff
   dc = diff --cached
@@ -26,7 +27,8 @@
   name = Mateus Gomes
   email = mateusg.18@gmail.com
 [core]
-  editor = subl -n -w
+  editor = vim
   excludesfile = ~/.gitignore
+  ignorecase = true
 [grep]
   lineNumber = true

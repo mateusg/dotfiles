@@ -9,4 +9,4 @@ db/dumps
 .~lock.*
 Procfile.local
 lib/tasks/db/setup_development_users.rake
-t
+perf.rake
