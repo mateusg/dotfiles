@@ -113,7 +113,7 @@ alias dbrollback="bundle exec rails db:rollback"
 alias gmigration="bundle exec rails g migration"
 alias gmodel="bundle exec rails g model"
 alias exorcize="rm -rf public/packs && rm -rf public/packs-test"
-alias qb="cd /home/mateus/code/quimbee"
+alias qb="cd $HOME/code/quimbee"
 alias heroku-rails-console='heroku run "rails console -- --noautocomplete"'
 alias epson-clean-print-head="escputil --clean-head"
 
