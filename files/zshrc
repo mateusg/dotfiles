@@ -117,6 +117,11 @@ alias qb="cd $HOME/code/quimbee"
 alias heroku-rails-console='heroku run "rails console -- --noautocomplete"'
 alias epson-clean-print-head="escputil --clean-head"
 
+# zshrc.local -- use this file to set up local/OS-specific configs, like specific libraries
+if [[ -f $HOME/.zshrc.local ]]; then
+  . $HOME/.zshrc.local
+fi
+
 # asdf
 if [[ -f $HOME/.asdf/asdf.sh ]]; then
   . $HOME/.asdf/asdf.sh
@@ -127,8 +132,3 @@ fi
 # Rails/Ruby
 export DISABLE_SPRING=true
 # export RUBYOPT=-W:no-deprecate # hides ruby deprecation warnings
-
-# Android Studio
-export PATH=/opt/AndroidStudio/bin:$PATH
-export ANDROID_HOME=$HOME/Android
-
