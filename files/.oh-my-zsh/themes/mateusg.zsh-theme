@@ -1,9 +1,16 @@
-BRANCH_CHAR=$'\uE0A0'
-ARROW_CHAR='\uF44A'
+# The following characters/symbols are based on the powerline-patched "consolas NF" font that
+# can be downloaded at https://github.com/Znuff/consolas-powerline.
+
+# Colors: https://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+SEPARATOR_CHAR=%{$reset_color%}$'\uF444'
 
 function ruby_prompt() {
   local RUBY_VERSION
-  local RUBY_CHAR='\uE23E'
+  local RUBY_CHAR=$'\uE791'
+  # local RUBY_CHAR='\uE739'
+  # local RUBY_CHAR='\uF43B'
+  # local RUBY_CHAR='\uE23E'
   # local RUBY_CHAR='🔻'
 
   if [[ $(which ruby) =~ 'asdf' ]]; then
@@ -19,7 +26,8 @@ function ruby_prompt() {
 
 function rails_prompt() {
   local RAILS_VERSION
-  local RAILS_CHAR='\uE604'
+  local RAILS_CHAR=$'\uE604'
+  # local RAILS_CHAR='\uF239'
   # local RAILS_CHAR='🛤'
 
   if [ -f "Gemfile.lock" ]; then
@@ -27,16 +35,56 @@ function rails_prompt() {
   fi
 
   if [ "$RAILS_VERSION" ]; then
-    echo -n "  %{$FG[124]%}${RAILS_CHAR} ${RAILS_VERSION}%{$reset_color%}"
+    echo -n " $SEPARATOR_CHAR %{$FG[124]%}${RAILS_CHAR} ${RAILS_VERSION}%{$reset_color%}"
+  fi
+}
+
+function os_char() {
+  local MACOS_CHAR=$'\uF179'
+  local UBUNTU_CHAR=$'\uF30C'
+  # local UBUNTU_CHAR='\uE73A'
+  local LINUX_CHAR=$'\uE712'
+  local GENERIC_OS_CHAR=$'\uF26C'
+
+  if [[ $(uname -a) =~ 'Darwin' ]]; then
+    echo -n %{$FG[007]%}$MACOS_CHAR # in white
+  elif [[ $(uname -a) =~ 'Ubuntu' ]]; then
+    echo -n %{$FG[214]%}$UBUNTU_CHAR # in orange
+  elif [[ $(uname -a) =~ 'Linux' ]]; then
+    echo -n %{$FG[011]%}$LINUX_CHAR # in yellow
+  else
+    echo -n %{$FG[007]%}$GENERIC_OS_CHAR # in white
   fi
 }
 
 if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="blue"; fi
 
+COLOR_YELLOW=%{$FG[220]%}
+COLOR_PURPLE_LIGHT=%{$FG[146]%}
+COLOR_GREY_DARK=%{$FG[240]%}
+COLOR_GIT_DIRTY=%{$FG[208]%}
 
-PROMPT='%{$FG[146]%}{ %n@%m $(ruby_prompt)$(rails_prompt) %{$FG[146]%}} %{$reset_color%}%{$FG[106]%}%3~ $(git_prompt_info)%{$FG[111]%}
-»%{${reset_color}%} '
+PROMPT_HOST_PREFIX=$COLOR_GREY_DARK\{
+PROMPT_HOST_SUFFIX=$COLOR_GREY_DARK\}
+PROMPT_HOST_INFO=%m%{$reset_color%}
+PROMPT_PATH_INFO=%{$reset_color%}%{$FG[034]%}%3~
+PROMPT_ARROW=%{$FG[134]%}»%{${reset_color}%}
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[220]%}$(echo $BRANCH_CHAR)_"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[220]%}%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[214]%}*%{$reset_color%}"
+PROMPT='$PROMPT_HOST_PREFIX $(os_char) $PROMPT_HOST_INFO $SEPARATOR_CHAR $(ruby_prompt)$(rails_prompt) $PROMPT_HOST_SUFFIX $PROMPT_PATH_INFO $(git_prompt_info)
+$PROMPT_ARROW '
+
+PROMPT_GIT_PREFIX=$COLOR_GREY_DARK\(%{$reset_color%}
+PROMPT_GIT_SUFFIX=$COLOR_GREY_DARK\)%{$reset_color%}
+
+GIT_CHAR=$'\uE725'
+# GIT_CHAR=$'\uF493'
+# GIT_CHAR=$'\uE0A0'
+
+GIT_DIRTY_CHAR=$'\uF069'
+# GIT_DIRTY_CHAR=$'\uF292'
+# GIT_DIRTY_CHAR=$'*'
+# GIT_DIRTY_CHAR=$'\uE780'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="$PROMPT_GIT_PREFIX$COLOR_YELLOW$GIT_CHAR $COLOR_YELLOW"
+ZSH_THEME_GIT_PROMPT_DIRTY="$COLOR_GIT_DIRTY$GIT_DIRTY_CHAR"
+ZSH_THEME_GIT_PROMPT_SUFFIX="$PROMPT_GIT_SUFFIX%{$reset_color%}"
