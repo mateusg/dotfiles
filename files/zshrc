@@ -117,7 +117,12 @@ alias qb="cd /home/mateus/code/quimbee"
 alias heroku-rails-console='heroku run "rails console -- --noautocomplete"'
 alias epson-clean-print-head="escputil --clean-head"
 
-. $HOME/.asdf/asdf.sh
+# asdf
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+  . $HOME/.asdf/asdf.sh
+elif [[ -f /usr/local/opt/asdf/libexec/asdf.sh ]]; then
+  . /usr/local/opt/asdf/libexec/asdf.sh
+fi
 
 # Rails/Ruby
 export DISABLE_SPRING=true
