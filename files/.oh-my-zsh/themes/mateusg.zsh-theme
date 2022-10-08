@@ -70,7 +70,9 @@ PROMPT_HOST_INFO=%m%{$reset_color%}
 PROMPT_PATH_INFO=%{$reset_color%}%{$FG[034]%}%3~
 PROMPT_ARROW=%{$FG[134]%}»%{${reset_color}%}
 
-PROMPT='$PROMPT_HOST_PREFIX $(os_char) $PROMPT_HOST_INFO $SEPARATOR_CHAR $(ruby_prompt)$(rails_prompt) $PROMPT_HOST_SUFFIX $PROMPT_PATH_INFO $(git_prompt_info)
+OS_CHAR=$(os_char)
+
+PROMPT='$PROMPT_HOST_PREFIX $OS_CHAR $PROMPT_HOST_INFO $SEPARATOR_CHAR $(ruby_prompt)$(rails_prompt) $PROMPT_HOST_SUFFIX $PROMPT_PATH_INFO $(git_prompt_info)
 $PROMPT_ARROW '
 
 PROMPT_GIT_PREFIX=$COLOR_GREY_DARK\(%{$reset_color%}
