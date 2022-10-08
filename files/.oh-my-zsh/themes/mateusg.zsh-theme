@@ -6,6 +6,10 @@
 SEPARATOR_CHAR=%{$reset_color%}$'\uF444'
 
 function ruby_prompt() {
+  if [[ $ZSH_THEME_DISABLE_RUBY_PROMPT ]]; then
+    return ""
+  fi
+
   local RUBY_VERSION
   local RUBY_CHAR=$'\uE791'
   # local RUBY_CHAR='\uE739'
@@ -20,11 +24,15 @@ function ruby_prompt() {
   fi
 
   if [ "$RUBY_VERSION" ]; then
-    echo -n "%f%{$FG[160]%}$RUBY_CHAR $RUBY_VERSION%{$reset_color%}"
+    echo -n " $SEPARATOR_CHAR %f%{$FG[160]%}$RUBY_CHAR $RUBY_VERSION%{$reset_color%}"
   fi
 }
 
 function rails_prompt() {
+  if [[ $ZSH_THEME_DISABLE_RAILS_PROMPT ]]; then
+    return ""
+  fi
+
   local RAILS_VERSION
   local RAILS_CHAR=$'\uE604'
   # local RAILS_CHAR='\uF239'
@@ -72,7 +80,7 @@ PROMPT_ARROW=%{$FG[134]%}»%{${reset_color}%}
 
 OS_CHAR=$(os_char)
 
-PROMPT='$PROMPT_HOST_PREFIX $OS_CHAR $PROMPT_HOST_INFO $SEPARATOR_CHAR $(ruby_prompt)$(rails_prompt) $PROMPT_HOST_SUFFIX $PROMPT_PATH_INFO $(git_prompt_info)
+PROMPT='$PROMPT_HOST_PREFIX $OS_CHAR $PROMPT_HOST_INFO$(ruby_prompt)$(rails_prompt) $PROMPT_HOST_SUFFIX $PROMPT_PATH_INFO $(git_prompt_info)
 $PROMPT_ARROW '
 
 PROMPT_GIT_PREFIX=$COLOR_GREY_DARK\(%{$reset_color%}
