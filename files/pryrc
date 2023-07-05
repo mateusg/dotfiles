@@ -17,24 +17,28 @@ if defined?(Rails)
 end
 
 begin
-  require "awesome_print"
-
-  # Don't use this, it does not support pry pagination
-  # AwesomePrint.pry! if defined?(AwesomePrint)
-
-  # Pry::Helpers::BaseHelpers.stagger_output is not checking if _pry_ is defined
-  # and is causing an error on pry >= 0.11.0
-  pager =
-    if Gem::Version.new(Pry::VERSION) >= Gem::Version.new("0.11.0")
-      Pry.new.pager
-    else
-      Pry::Pager
-    end
-
-  # Prints results with awesome_print and paginates them with pry pager
-  Pry.config.print = proc do |output, value|
-    pager.page "=> #{value.ai}"
-  end
+  require "amazing_print"
 rescue LoadError => err
-  warn "=> Unable to load awesome_print"
+  begin
+    require "awesome_print" # fallback to awesome_print
+
+    # Don't use this, it does not support pry pagination
+    # AwesomePrint.pry! if defined?(AwesomePrint)
+  rescue LoadError => err
+    warn "=> Couldn't load amazing_print or awesome_print"
+  end
+end
+
+# Pry::Helpers::BaseHelpers.stagger_output is not checking if _pry_ is defined
+# and is causing an error on pry >= 0.11.0
+pager =
+  if Gem::Version.new(Pry::VERSION) >= Gem::Version.new("0.11.0")
+    Pry.new.pager
+  else
+    Pry::Pager
+  end
+
+# Prints results with awesome_print and paginates them with pry pager
+Pry.config.print = proc do |output, value|
+  pager.page "=> #{value.ai}"
 end
