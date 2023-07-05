@@ -116,6 +116,7 @@ alias gmodel="bundle exec rails g model"
 alias exorcize="rm -rf public/packs && rm -rf public/packs-test"
 alias qb="cd $HOME/code/quimbee"
 alias heroku-rails-console='heroku run "rails console -- --noautocomplete"'
+alias heroku-rails-console-small='heroku run "rails console -- --noautocomplete" --size private-s'
 alias epson-clean-print-head="escputil --clean-head"
 
 # zshrc.local -- use this file to set up local/OS-specific configs, like specific libraries
