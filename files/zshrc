@@ -106,6 +106,7 @@ alias lg="nocorrect git lg"
 alias dumpdiff='git diff master > `date +"%Y-%m-%d---%H-%M-%S"`-`git rev-parse --abbrev-ref HEAD`.diff'
 alias be="bundle exec"
 alias bu="bundle update"
+alias bi="bundle install -j 8"
 alias etest="RAILS_ENV=test"
 alias kicker_rails='kicker -r rails -b "spin push"'
 alias dbmigrate="bundle exec rails db:migrate"
